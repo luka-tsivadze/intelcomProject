@@ -1,222 +1,99 @@
 
-let indexForChange = 0
-let i=0;
-
-
-let submanu = document.getElementById('sm')
-let INTELData = [
-  {
-    basic: [
-      {
-        header: 'Login',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: 'Lorem ipsum dolor sit amet consectetur. Pulvinar feugiat tellus porttitor lacinia vulputate scelerisque. Tortor neque mi morbi neque tortor pretium maecenas. Egestas massa amet etiam viverra sed venenatis pellentesque. Faucibus erat ornare turpis lacus aliquet sed aliquam dictum. Mi consequat neque odio mauris quis enim. Vel leo cras auctor elit pharetra sit amet viverra lobortis. Vel congue ut nunc consequat hendrerit scelerisque sit eget. Metus lorem faucibus congue enim vel. Eu ut eget venenatis faucibus. Urna consectetur neque urna neque tincidunt vehicula ut. Sed a vulputate ipsum felis malesuada tincidunt hendrerit facilisis. Non pellentesque amet malesuada eget maecenas. Amet amet venenatis integer vulputate sit purus fermentum. Diam fringilla felis scelerisque diam id. Enim lorem eleifend sit.' }
-        ]
-      },
-      {
-        header: 'PlayBack Interfe',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: 'lorem eoprjaub U VDTI tqdU D5 tut56' }
-        ]
-      },
-      {
-        header: 'smart',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'Live View Interface',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'Live View Interface',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      }
-    ]
-  },
-  {
-    setup: [
-      {
-        header: 'Setup',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'PlayBack Interfe',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: '3455',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'Live View Interface',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      }
-    ]
-  },
-  {
-    smart: [
-      {
-        header: 'smart',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'PlayBack Interface',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'Live View Interface',
-        cards: [
-          { Img: '', text: '' },
-          { Img: '', text: '' }
-        ]
-      },
-      {
-        header: 'Live View Interface',
-        cards: [
-          { Img: '', text: 'nlb' },
-          { Img: '', text: 'bbbb' }
-        ]
-      }
-    ]
-  },
-  {
-    about: {
-      header: 'about',
-      text: `Lorem ipsum dolor sit amet consectetur. Pulvinar feugiat tellus porttitor lacinia vulputate scelerisque. Tortor neque mi morbi neque tortor pretium maecenas. Egestas massa amet etiam viverra sed venenatis pellentesque. Faucibus erat ornare turpis lacus aliquet sed aliquam dictum. Mi consequat neque odio mauris quis enim. Vel leo cras auctor elit pharetra sit amet viverra lobortis. Vel congue ut nunc consequat hendrerit scelerisque sit eget. Metus lorem faucibus congue enim vel. Eu ut eget venenatis faucibus. Urna consectetur neque urna neque tincidunt vehicula ut. Sed a vulputate ipsum felis malesuada tincidunt hendrerit facilisis. Non pellentesque amet malesuada eget maecenas.
-       Amet amet venenatis integer vulputate sit purus fermentum. Diam fringilla felis scelerisque diam id. Enim lorem eleifend sit.`
-    }
-  }
-];
-let rc = document.getElementById('RC')
-
-let main = document.getElementById('mn')
-let counter = 0
+let indexForChange = 0;
+let i = 0;
+let submanu = document.getElementById('sm');
+let INTELData = window.data;
+let rc = document.getElementById('RC');
+let main = document.getElementById('mn');
+let counter = 0;
 let chosenHeaderNav = INTELData[0].basic;
 let li = document.querySelectorAll('.navIcon');
 
+// Event listener for navigation icons
 for (let key of li) {
- 
-  key.addEventListener('click', function () {
-
-    li.forEach(item => {
-      item.classList.remove('active');
+    key.addEventListener('click', function () {
+        // Remove 'active' class from all navigation icons
+        li.forEach(item => {
+            item.classList.remove('active');
+        });
+        // Add 'active' class to the clicked navigation icon
+        key.classList.add('active');
+        // Update chosenHeaderNav based on clicked icon
+        chosenHeaderNav = key.innerText;
+        chosingnav();
     });
-
-    key.classList.add('active');
-
-
-    chosenHeaderNav = key.innerText;
-    chosingnav()
- 
-
-
-  });
 }
-let Lessthan1=0;
-chosingnav()
 
+// Initial function call to populate the page
+chosingnav();
+
+// Function to handle navigation choice
 function chosingnav() {
-
-  if (chosenHeaderNav == 'Basics') {
-    chosenHeaderNav = INTELData[0].basic
-
-  } else if (chosenHeaderNav == 'Setup') {
-    chosenHeaderNav = INTELData[1].setup
-  } else if (chosenHeaderNav == 'smart') {
-    chosenHeaderNav = INTELData[2].smart
-  } else if (chosenHeaderNav == 'about') {
-    chosenHeaderNav = INTELData[3].about
-  } else {
-
-  }
-
-  let index = 0;
-
-  let hparent = document.getElementById('smi')
-  hparent.innerHTML = ''
-  main.innerHTML = ''
-  console.log(chosenHeaderNav)
-  if (chosenHeaderNav[1]) {
-    rc.parentElement.classList.remove('parent')
-    rc.classList.remove('dNone')
-  
-     for (let head of chosenHeaderNav) {
-      h5(head.header)
-      if (head.cards) {
-        for (let card of head.cards) {
-
-          if (index % 3 == 0) {
-            creatingFirstcard(card)
-
-          } else if (index % 3 == 1) {
-            creatingSecondcard(card)
-          } else {
-            thirdCard(card)
-
-          }
-          index++;
-
-        }
-
-
-
-      } 
-      var h4 = document.createElement('h4');
-      h4.innerText = head.header
-
-      hparent.appendChild(h4)
-      Rightfilter(h4);
-
+    // Determine which section is chosen and update chosenHeaderNav accordingly
+    if (chosenHeaderNav == 'Basics') {
+        chosenHeaderNav = INTELData[0].basic;
+    } else if (chosenHeaderNav == 'Setup') {
+        chosenHeaderNav = INTELData[1].setup;
+    } else if (chosenHeaderNav == 'Smart') {
+        chosenHeaderNav = INTELData[2].smart;
+    } else if (chosenHeaderNav == 'About') {
+        chosenHeaderNav = INTELData[3].about;
+    } else {
+        // Handle other cases if needed
     }
-  } else {
 
-    about(chosenHeaderNav.text)
-    rc.classList.add('dNone')
-    rc.parentElement.classList.add('parent')
-  }
-  
-}   
+    // Clear main content
+    let index = 0;
+    let hparent = document.getElementById('smi');
+    hparent.innerHTML = '';
+    main.innerHTML = '';
 
-function creatingFirstcard() {
-
+    // Populate main content based on chosenHeaderNav
+    if (chosenHeaderNav[1]) {
+        // Display cards
+        rc.parentElement.classList.remove('parent');
+        rc.classList.remove('dNone');
+        for (let head of chosenHeaderNav) {
+            h5(head.header);
+            if (head.cards) {
+                for (let card of head.cards) {
+                    if (index % 3 == 0) {
+                        creatingFirstcard(card);
+                    } else if (index % 3 == 1) {
+                        creatingSecondcard(card);
+                    } else {
+                        thirdCard(card);
+                    }
+                    index++;
+                }
+            }
+            var h4 = document.createElement('h4');
+            h4.innerText = head.header;
+            hparent.appendChild(h4);
+            Rightfilter(h4);
+        }
+    } else {
+        // Display about section
+        about(chosenHeaderNav.text);
+        rc.classList.add('dNone');
+        rc.parentElement.classList.add('parent');
+    }
+}
+// Function to create the first type of card
+function creatingFirstcard(card) {
+ 
   
   let firstCard = document.createElement('div');
   firstCard.classList.add('Fcard', 'cards');
 
   
-  let leftSide = document.createElement('div');
+  let leftSide = document.createElement('a');
   leftSide.classList.add('cardLeft');
+  leftSide.setAttribute('href',`${card.Img}`)
+  leftSide.setAttribute('target', '_blank');
   let imgLeft = document.createElement('img');
-  imgLeft.src = 'photos/1.png';
+  console.log()
+  imgLeft.src = `${card.Img}`;
   imgLeft.alt = '';
   leftSide.appendChild(imgLeft);
 
@@ -224,7 +101,7 @@ function creatingFirstcard() {
   let rightSide = document.createElement('div');
   rightSide.classList.add('cardRight');
   let pRight = document.createElement('p');
-  pRight.textContent = 'Lorem ipsum dolor sit amet consectetur. Pulvinar feugiat tellus porttitor lacinia vulputate scelerisque. Tortor neque mi morbi neque tortor pretium maecenas. Egestas massa amet etiam viverra sed venenatis pellentesque. Faucibus erat ornare turpis lacus aliquet sed aliquam dictum. Mi consequat neque odio mauris quis enim. Vel leo cras auctor elit pharetra sit amet viverra lobortis. Vel congue ut nunc consequat hendrerit scelerisque sit eget. Metus lorem faucibus congue enim vel. Eu ut eget venenatis faucibus. Urna consectetur neque urna neque tincidunt vehicula ut. Sed a vulputate ipsum felis malesuada tincidunt hendrerit facilisis. Non pellentesque amet malesuada eget maecenas. Amet amet venenatis integer vulputate sit purus fermentum. Diam fringilla felis scelerisque diam id. Enim lorem eleifend sit.';
+  pRight.textContent = `${card.text}`;
   rightSide.appendChild(pRight);
 
   // Append left and right side to the first card
@@ -232,42 +109,53 @@ function creatingFirstcard() {
   firstCard.appendChild(rightSide);
   main.appendChild(firstCard)
 
-
+  ForText()
 }
 
+// Function to create the second type of card
 function creatingSecondcard(card) {
   let secondCard = document.createElement('div');
   secondCard.classList.add('Scard', 'cards');
 
   let rightSideSecondCard = document.createElement('div');
   rightSideSecondCard.classList.add('cardRight');
+ 
   let pRightSecondCard = document.createElement('p');
 
   pRightSecondCard.textContent = `${card.text}`;
   rightSideSecondCard.appendChild(pRightSecondCard);
 
-  let rightSideSecondCardRight = document.createElement('div');
+  let rightSideSecondCardRight = document.createElement('a');
   rightSideSecondCardRight.classList.add('ScardR');
+  rightSideSecondCardRight.setAttribute('href',`${card.Img}`)
+  rightSideSecondCardRight.setAttribute('target', '_blank');
   let imgRight = document.createElement('img');
-  imgRight.src = 'photos/1.png';
+  imgRight.src = `${card.Img}`;
   imgRight.alt = '';
   rightSideSecondCardRight.appendChild(imgRight);
 
   secondCard.appendChild(rightSideSecondCard);
   secondCard.appendChild(rightSideSecondCardRight);
   main.appendChild(secondCard)
+
+  ForText()
 }
-function thirdCard() {
+
+// Function to create the third type of card
+function thirdCard(card) {
   let thirdCard = document.createElement('div');
   thirdCard.classList.add('TCard', 'cards');
 
   let imgPlace = document.createElement('div');
   imgPlace.classList.add('imgPlace');
-  let imgFrame = document.createElement('div');
+  let imgFrame = document.createElement('a');
   imgFrame.classList.add('ImgFrame');
+  imgFrame.setAttribute('href',`${card.Img}`)
+  imgFrame.setAttribute('target', '_blank');
   let imgThirdCard = document.createElement('img');
-  imgThirdCard.src = 'photos/for3card.png';
-  imgThirdCard.alt = '';
+  imgThirdCard.src = `${card.Img}`;
+  
+  imgThirdCard.alt = ``;
   imgFrame.appendChild(imgThirdCard);
   imgPlace.appendChild(imgFrame);
 
@@ -275,7 +163,7 @@ function thirdCard() {
   let textPlace = document.createElement('div');
   textPlace.classList.add('TextPlace');
   let pThirdCard = document.createElement('p');
-  pThirdCard.textContent = 'Lorem ipsum dolor sit amet consectetur. Amet dolor amet turpis bibendum morbi tempus amet pretium. Aliquet facilisis nunc dolor nulla eu nulla justo. Neque volutpat at cursus dui viverra. Et in at at duis senectus mi diam. Non vivamus tortor suspendisse erat. Sem lacinia dignissim molestie praesent iaculis turpis purus tortor eu. In nec ornare donec vel bibendum diam nec. Est non faucibus viverra tristique turpis. Egestas pharetra aliquam feugiat dignissim et aliquam aliquet morbi. Est vitae pellentesque tincidunt nunc elementum diam mattis id. Nulla quis vel et semper. Vestibulum id in lacus justo lectus dui molestie netus. Faucibus egestas vel tortor fermentum adipiscing mauris proin tincidunt eleifend. Elit phasellus ultrices metus elementum nunc diam mi pharetra praesent. Ultricies molestie tristique luctus at tincidunt sodales vestibulum. Quis feugiat feugiat sit facilisi tellus aliquam purus iaculis in. Eget nulla habitant vitae neque pellentesque sagittis aliquam molestie. At aliquet in praesent cursus facilisi ipsum integer risus id. Sociis proin aliquet amet diam ornare volutpat ornare eget dictum. Donec neque mi sem duis. At vivamus augue tristique dui. Faucibus arcu lectus ut proin arcu in condimentum.';
+  pThirdCard.textContent = `${card.text}`;
   textPlace.appendChild(pThirdCard);
 
   // Append image place and text place to the third card
@@ -284,11 +172,14 @@ function thirdCard() {
   main.appendChild(thirdCard);
 }
 
+// Function to create header element
 function h5(head) {
   let h5 = document.createElement('h5')
   h5.innerHTML = `${head}`
   main.appendChild(h5)
 }
+
+// Function to add event listener for right filter
 function Rightfilter(h4) {
 
   h4.addEventListener('click', function () {
@@ -315,6 +206,7 @@ function Rightfilter(h4) {
   })
 }
 
+// Function to display about section
 function about(text) {
   let carousell=document.createElement('div')
   carousell.classList.add('carousell')
@@ -357,4 +249,26 @@ textSide.classList.add('AboutText')
     main.appendChild(AbParent)
 }
 
+// Function to handle overflow of card content
+function ForText(){
+  const cardRightElements = document.querySelectorAll('.cardRight');
 
+  cardRightElements.forEach(cardRight => {
+      const content = cardRight.querySelector('p');
+  
+      
+      if (content.scrollHeight > cardRight.clientHeight) {
+          cardRight.classList.add('overflowing');
+     
+      }
+
+      
+      window.addEventListener('resize', function() {
+          if (content.scrollHeight > cardRight.clientHeight) {
+              cardRight.classList.add('overflowing');
+          } else {
+              cardRight.classList.remove('overflowing');
+          }
+      });
+  });
+};

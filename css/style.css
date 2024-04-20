@@ -156,7 +156,7 @@ border-radius: 10px;
 .main{
     display: flex;
     flex-direction: column;
-    gap: 88px;
+    gap: 115px;
     justify-content: center;
     align-items: center;
     overflow-x: hidden;

@@ -11,6 +11,7 @@
     gap: 10%;
     padding:0 50px 0px 0px;
     width: 100%;
+    height: 600px;
     opacity: 0.6; 
     transition: all 0.5s ease; 
   
@@ -32,24 +33,58 @@ box-shadow: 2px 13px 40px rgb(129, 129, 129);
     padding:30px 0px;
     position: relative;
     top: 50%;
-    left: 150px;
+    left: 110px;
     transform: translateY(-50%);
 }
 
 .cardRight{
+ 
 display: flex;
 justify-content: center;
 align-items: center;
     width: 44%;
+    height: 500px;
+    overflow-y: auto;
+}
+.cardRight.overflowing {
+    
+    align-items: unset;
+}
+.cardRight.overflowing p{
+    padding-top: 50px;
+}
+.dNone{
+    display: none;
 }
 .cardRight p{
+    white-space: pre-line;
+ 
     color: #000000;
 font-family: 'anonymous';
     font-size: 20px;
     line-height: 25px;
     font-weight: 400;
- width: 55vw;
+     
 }
+*::-webkit-scrollbar {
+    width: 16px; /* Width of the scrollbar */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color:  #6592d1; /* Color of the scrollbar thumb */
+    border-radius: 12px; /* Border radius of the scrollbar thumb */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+    background-color:  #51719e /* Color of the scrollbar thumb on hover */
+}
+*::-webkit-scrollbar-track {
+    
+    
+    border-radius: 12px;
+    background-color: #f4f4f4; /* Color of the scrollbar track */
+}
+
 .Scard{
  position: relative;
  right: -400px;
@@ -57,6 +92,7 @@ font-family: 'anonymous';
     transition:all 0.5s ease ;
     justify-content: end;
     width: 100%;
+    height: 600px;
     gap: 8%;
 padding: 10px 0px 0px 50px;
 opacity: 0.6;
@@ -93,7 +129,7 @@ background-repeat: no-repeat;
     align-items: center;
     position: relative;
     padding: 30px;
-    padding-top: 180px;
+    padding-top: 260px;
 opacity: 0.6;
     min-height:500px;
     border-radius: 30px;
@@ -113,7 +149,7 @@ opacity: 0.6;
 .TextPlace p{
     font-size: 19px;
     font-weight: 400;
-    line-height: 18px;
+    line-height: 24px;
 
 }
 .main h5{
@@ -144,27 +180,7 @@ font-size: 15px;
     position: relative;
 }
 
-.window  img {
-    height: 700px;
-    position: absolute; /* Position the image absolutely */
-    cursor: move; /* Set cursor to indicate draggable element */
-}
 
-/* Style for the zoomed image */
-.window .ImgFrame img.zoomed {
-    height: 800px; /* Increase size when zoomed */
-}
-
-.window .cardRight {
-    width: 70%;
-}
-.window .cardRight P{
-    width: 100%;
-    font-size: 22px;
-}
-.dNone{
-    display: none;
-}
 .parent ~ .openManu{
 display: none;
 background-color: rebeccapurple;
@@ -183,4 +199,14 @@ background-color: rebeccapurple;
         max-height: 565px;
         padding: 0 300px;
     
+    }
+    .cardLeft img {
+        max-width: 800px;
+    }
+    .ScardR img {
+        max-width: 800px;
+    }
+    .TextPlace{
+        height: 180px;
+        overflow: auto;
     }
