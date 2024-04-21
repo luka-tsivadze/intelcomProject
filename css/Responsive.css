@@ -20,3 +20,60 @@ left: 100px;
     }
 
 }
+@media screen and (max-width: 1000px) {
+    nav{
+    padding: 31px 40px;
+    }
+ul{
+    padding: 0;
+}
+    .navMiddle{
+        gap: 10%;
+    }
+    .Fcard{
+        gap: 2%;
+        flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+    .cardRight{
+        width: 90%;
+    }
+    .cardLeft{
+        border-radius: 40px;
+    }
+    .cardLeft img {
+        left: 0px;
+        border-radius: 35px;
+        padding: 30px;
+                width: 600px;
+            }
+            .Scard{
+                gap: 2%;
+                flex-direction: column-reverse;
+            justify-content: center;
+            align-items: center;
+            }
+            .ScardR{
+                background-image: unset;
+          right: 0;
+                background-color: #6791CB;
+                padding: 30px;
+            border-radius: 9px;
+            }
+            .ScardR img{
+          width: 600px;
+          right: 0px;
+            
+            }
+            .imgPlace img {
+                height: 330px;
+            }
+            .TCard {
+                width: 95%;
+            }
+            .openManu {
+                width: 150px;
+            }
+
+}
