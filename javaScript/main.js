@@ -2,7 +2,8 @@
 let indexForChange = 0;
 let i = 0;
 let submanu = document.getElementById('sm');
-let INTELData = window.data;
+
+let INTELData = JSON.parse(localStorage.getItem('Data'));
 let rc = document.getElementById('RC');
 let main = document.getElementById('mn');
 let counter = 0;

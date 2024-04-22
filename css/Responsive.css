@@ -75,5 +75,71 @@ ul{
             .openManu {
                 width: 150px;
             }
+            .carousel {
+                padding: 20px  50px;
+                height: 400px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .AboutText {
+                padding: 20px 10px;
+            
+            }
 
 }
+
+@media screen and (max-width: 700px) {
+
+    nav{
+        margin-bottom: 50px;
+    }
+    .navMiddle{
+border-bottom-right-radius: 20px;
+        position: absolute;
+        top: 103px;
+       left: 0;
+        gap: 15%;
+        padding: 10px 20% ;
+        background:  #48658d;
+    }
+    li{
+        font-size: 20px;
+    }
+.main{
+    gap: 50px;
+}
+.Fcard{
+    padding: 0;
+}
+.cardRight{
+    width: 100%;
+}
+.cardRight.overflowing p{
+    padding: 10px;
+}
+.Scard{
+    padding: 0;
+
+}
+.Scard{
+    padding: 20px;
+}
+.ScardR img{
+    
+    width: 100%;
+}
+.cardLeft img{
+    padding: 20px;
+    width: 100%;
+}
+.imgPlace img {
+    width: 100%;
+}
+.TCard{
+    width: 100%;
+}
+}
+
+
+

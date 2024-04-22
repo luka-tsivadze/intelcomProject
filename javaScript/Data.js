@@ -1,5 +1,6 @@
 
-window.data=[
+
+data=[
     {
       basic: [
         {
@@ -520,3 +521,6 @@ window.data=[
       }
     }
 ]
+data=JSON.stringify(data)
+localStorage.setItem('Data',data)
+//window.data
